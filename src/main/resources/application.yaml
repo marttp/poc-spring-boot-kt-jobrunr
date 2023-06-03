@@ -1,0 +1,25 @@
+spring:
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/medical
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root
+  docker:
+    compose:
+      enabled: false
+  sql:
+    init:
+      mode: always
+org:
+  jobrunr:
+    background-job-server:
+      enabled: true # Disable by default (false)
+      delete-succeeded-jobs-after: 48h
+    dashboard:
+      enabled: true # JobRunr dashboard
+    jobs:
+      metrics:
+        enabled: true # Micrometer metrics
+      default-number-of-retries: 0
+    miscellaneous:
+      allow-anonymous-data-usage: false
